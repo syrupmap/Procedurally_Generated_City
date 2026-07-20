@@ -18,7 +18,9 @@ This project is a procedural city generator build in Unity using a tile-based co
 - Generator uses recursive backtracking with weighted tile selection to build valid road networks, building blocks, and open spaces while respecting border and connectivity rules.
     - Non-Colored <img width="1507" height="875" alt="Screenshot 2026-07-19 at 9 24 55 PM" src="https://github.com/user-attachments/assets/8ee1c070-eed2-4022-b979-98b918752d34" />
     - Colored <img width="1507" height="875" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
-- Next Steps... Working on improving the tile spawning 
+- Currently using simple blender assets <img width="793" height="441" alt="Screenshot 2026-07-19 at 10 33 40 PM" src="https://github.com/user-attachments/assets/6f25d636-9cbf-4874-8666-ae74a575245f" />
+
+- Next Steps... Working on improving the tile spawning
 
 ## Resources + Inspiration
 - https://www.youtube.com/watch?v=Jsc3BQaJndQ (Inspiration)
