@@ -14,16 +14,20 @@ This project is a procedural city generator build in Unity using a tile-based co
 - Blender
 
 ## Progress (Updating)
-### Tile Creation + Development
+### 1) Tile Creation + Development
 - Tile-Edge constraints determine how it can connect to neighboring tiles. Tile rotations are automatically supported, increasing layout variety without requiring additional assets. (Current building + road assets Developed/Baked in Blender)
 - <img width="400" height="400" alt="IMG_0A79C80EBA14-1" src="https://github.com/user-attachments/assets/8ed92f9d-6161-4b0e-976b-3305e5ec976b" />
 - Generator uses recursive backtracking with weighted tile selection to build valid road networks, building blocks, and open spaces while respecting border and connectivity rules.
 - <img width="700" height="500" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
 
-## City Blocking 
+### 2) City Blocking 
 - Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist. 
 - <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 41 25 AM" src="https://github.com/user-attachments/assets/e3e768dc-b589-42f5-9264-c8d839a578c3" />
 - <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 12 07 AM" src="https://github.com/user-attachments/assets/c317b0e6-4604-479d-93fa-b0eb960237c7" />
+
+### 3) Next Steps 
+- Optimizing code
+- Adding more features like parks + subway sections + third spaces other than buildings and roads
 
 
 ## Resources + Inspiration
