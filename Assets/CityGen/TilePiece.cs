@@ -2,18 +2,21 @@ using UnityEngine;
 
 public enum Dir { North, East, South, West }
 public enum TileType { Road, Building, Park, Empty }
-public enum EdgeType { Empty = 0, Road = 1, Building = 2 }
+public enum EdgeType { Empty = 0, Road = 1, Building = 2 , Sidewalk =3}
 
 
 [CreateAssetMenu(fileName = "TilePiece", menuName = "CityGen/TilePiece")]
 public class TilePiece : ScriptableObject
 {
+    [Tooltip("Prefab representing this tile piece.")]
     public GameObject prefab;
-
-    // Used by CityGenerator to name spawned GameObjects (e.g. "RoadStraight_3_5").
-    // Defaults to the asset's own name if left blank.
+    [Tooltip("Name of the tile piece. If left empty, will default to the name of the prefab.")]
     public string pieceName;
 
+    [Tooltip("Type of the tile piece.")]
+    public TileType category;
+
+    [Tooltip("String representing the edge types for each direction (N, E, S, W).")]
     public string edgeNums;
     public EdgeType[] edges = new EdgeType[4];
 
@@ -21,7 +24,7 @@ public class TilePiece : ScriptableObject
     {
         if (edges == null || edges.Length != 4)
         {
-            Debug.LogError($"TilePiece '{name}': edges array must have exactly 4 elements (N, E, S, W).");
+            Debug.LogError("Edges array must have exactly 4 elements (N, E, S, W).");
         }
 
         if (string.IsNullOrEmpty(pieceName))
@@ -29,8 +32,6 @@ public class TilePiece : ScriptableObject
             pieceName = name;
         }
     }
-
-    public int allowedRotations = 4;
 
     // Relative likelihood this piece gets picked over others when multiple are valid.
     // Used by CityGenerator's WeightedShuffle.

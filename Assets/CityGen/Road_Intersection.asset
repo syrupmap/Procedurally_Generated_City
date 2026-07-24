@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87f0d5aad6f4340b5952ef5530374126, type: 3}
-  m_Name: TilePiece_Blank
+  m_Name: Road_Intersection
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
-  prefab: {fileID: 919132149155446097, guid: affa80d0caa364819b539d0f250ecf0c, type: 3}
-  pieceName: TilePiece_Blank
-  edgeNums: '[0, 0, 0, 0]'
-  edges: 00000000000000000000000000000000
-  allowedRotations: 4
+  prefab: {fileID: 919132149155446097, guid: 84342e8f0ffd94341a15e93417a05548, type: 3}
+  pieceName: Road_Intersection
+  category: 0
+  edgeNums: '[1, 1, 1, 1]'
+  edges: 01000000010000000100000001000000
   weight: 1

@@ -15,6 +15,7 @@ public class CityGenerator : MonoBehaviour
 
     //public BuildingKit[] buildingKits;
 
+    [Tooltip("Maximum width of a lot in cells. If a building's width exceeds this, it will be split into multiple lots.")]
     public int maxLotWidthCells = 3;
 
     private class PlacedTile
@@ -26,7 +27,6 @@ public class CityGenerator : MonoBehaviour
     private PlacedTile[,] grid;
     private int attemptsUsed;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GenerateCity();
@@ -40,15 +40,10 @@ public class CityGenerator : MonoBehaviour
         }
         grid = new PlacedTile[gridWidth, gridHeight];
         attemptsUsed = 0;
-
-        // These two calls were missing — without them the grid is reset
-        // but never actually filled or spawned into the scene.
         bool success = TryFillGrid(0, 0);
         if (!success)
         {
-            Debug.LogWarning("CityGenerator: could not find a fully valid layout within " +
-                              maxAttempts + " attempts. Result may have empty gaps. " +
-                              "Try increasing maxAttempts or adding more Empty-bordered filler pieces.");
+            Debug.LogWarning("CityGenerator: could not find a fully valid layout");
         }
 
         InstantiateGrid();
@@ -75,38 +70,45 @@ public class CityGenerator : MonoBehaviour
         {
             if (attemptsUsed++ > maxAttempts)
             {
-                return false; // Exceeded max attempts
+                return false;
             }
             grid[x, y] = new PlacedTile { tilePiece = tiles.piece, rotationSteps = tiles.rotationSteps };
             if (TryFillGrid(nextX, nextY))
             {
-                return true; // Successfully filled the grid
+                return true; 
             }
-            grid[x, y] = null; // Backtrack
+            grid[x, y] = null;
         }
-        return false; // No valid tile could be placed
+        return false; 
     }
 
     List<(TilePiece piece, int rotationSteps)> GetValidTiles(int x, int y)
     {
         var result = new List<(TilePiece piece, int rotationSteps)>();
         EdgeType? westNeighborEastSocket = null;
+        TileType? westNeighborCategory = null;
         if (x > 0 && grid[x - 1, y] != null)
+        {
             westNeighborEastSocket = grid[x - 1, y].tilePiece.GetEdge(Dir.East, grid[x - 1, y].rotationSteps);
+            westNeighborCategory = grid[x - 1, y].tilePiece.category;
+        }
         EdgeType? southNeighborNorthSocket = null;
+        TileType? southNeighborCategory = null;
         if (y > 0 && grid[x, y - 1] != null)
+        {
             southNeighborNorthSocket = grid[x, y - 1].tilePiece.GetEdge(Dir.North, grid[x, y - 1].rotationSteps);
+            southNeighborCategory = grid[x, y - 1].tilePiece.category;
+        }
 
         foreach (var piece in tilePieces)
         {
             if (piece.prefab == null) continue;
 
-            int rotStep = 4 / Mathf.Max(1, piece.allowedRotations);
+            int rotStep = 4 / Mathf.Max(1, 4);
             for (int r = 0; r < 4; r += rotStep)
             {
-                if (!EdgeMatch(westNeighborEastSocket, piece.GetEdge(Dir.West, r))) continue;
-                if (!EdgeMatch(southNeighborNorthSocket, piece.GetEdge(Dir.South, r))) continue;
-
+                if (!EdgeMatch(westNeighborEastSocket, westNeighborCategory, piece.GetEdge(Dir.West, r), piece.category)) continue;
+                if (!EdgeMatch(southNeighborNorthSocket, southNeighborCategory, piece.GetEdge(Dir.South, r), piece.category)) continue;
                 if (requireBorder)
                 {
                     if (x == 0 && piece.GetEdge(Dir.West, r) != EdgeType.Empty) continue;
@@ -138,9 +140,18 @@ public class CityGenerator : MonoBehaviour
         });
     }
 
-    bool EdgeMatch(EdgeType? required, EdgeType candidate)
+    bool EdgeMatch(EdgeType? required, TileType? requiredCategory, EdgeType candidate, TileType candidateCategory)
     {
-        return !required.HasValue || required.Value == candidate;
+        if (!required.HasValue) return true;
+        if (required.Value != candidate) return false;
+        if (required.Value == EdgeType.Sidewalk &&
+            requiredCategory.HasValue && requiredCategory.Value == TileType.Building &&
+            candidateCategory == TileType.Building)
+        {
+            return false;
+        }
+ 
+        return true;
     }
 
     void InstantiateGrid()

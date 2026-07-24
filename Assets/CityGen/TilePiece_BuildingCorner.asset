@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f0d5aad6f4340b5952ef5530374126, type: 3}
   m_Name: TilePiece_BuildingCorner
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
-  prefab: {fileID: 919132149155446097, guid: 31ca5e7239b6144278b65f2807cc5241, type: 3}
-  pieceName: TilePiece_BuildingCorner
-  edgeNums: '[2,0, 0, 2]'
-  edges: 02000000000000000000000002000000
-  allowedRotations: 4
+  prefab: {fileID: 919132149155446097, guid: 5c545d2b54c874d61a7074f890a96761, type: 3}
+  pieceName: OneDoorBuilding
+  category: 1
+  edgeNums: '[2, 2, 3, 2]'
+  edges: 02000000020000000300000002000000
   weight: 1
