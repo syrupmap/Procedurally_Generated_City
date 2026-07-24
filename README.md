@@ -23,6 +23,8 @@ This project is a procedural city generator build in Unity using a tile-based co
 ## City Blocking 
 - Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist. 
 - <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 41 25 AM" src="https://github.com/user-attachments/assets/e3e768dc-b589-42f5-9264-c8d839a578c3" />
+- <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 12 07 AM" src="https://github.com/user-attachments/assets/c317b0e6-4604-479d-93fa-b0eb960237c7" />
+
 
 ## Resources + Inspiration
 - https://www.youtube.com/watch?v=Jsc3BQaJndQ (Inspiration)
