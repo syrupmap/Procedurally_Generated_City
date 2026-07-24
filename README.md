@@ -12,14 +12,14 @@ This project is a procedural city generator build in Unity using a tile-based co
 ## Built With
 - Unity
 - C#
+- Blender
 
 ## Progress (Updating)
 ### Tile Creation + Development
-- Tile-Edge constraints determine how it can connect to neighboring tiles. Tile rotations are automatically supported, increasing layout variety without requiring additional assets.
+- Tile-Edge constraints determine how it can connect to neighboring tiles. Tile rotations are automatically supported, increasing layout variety without requiring additional assets. (Current building + road assets Developed/Baked in Blender)
 - <img width="500" height="400" alt="IMG_0A79C80EBA14-1" src="https://github.com/user-attachments/assets/8ed92f9d-6161-4b0e-976b-3305e5ec976b" />
 - Generator uses recursive backtracking with weighted tile selection to build valid road networks, building blocks, and open spaces while respecting border and connectivity rules.
 - <img width="700" height="500" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
-- Assets Developed in Blender
 
 ## City Blocking 
 - 
