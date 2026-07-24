@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87f0d5aad6f4340b5952ef5530374126, type: 3}
-  m_Name: TilePiece_StraightRoad
+  m_Name: Empty_build 3
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
-  prefab: {fileID: 919132149155446097, guid: 31ca5e7239b6144278b65f2807cc5241, type: 3}
-  pieceName: ThreeDoorBuilding
-  category: 1
-  edgeNums: '[3, 3, 0, 3]'
-  edges: 03000000030000000000000003000000
-  weight: 3
+  prefab: {fileID: 919132149155446097, guid: affa80d0caa364819b539d0f250ecf0c, type: 3}
+  pieceName: Empty_build
+  category: 2
+  edgeNums: '[0, 0, 0, 2]'
+  edges: 00000000000000000000000002000000
+  weight: 2

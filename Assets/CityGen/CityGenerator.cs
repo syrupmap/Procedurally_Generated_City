@@ -13,6 +13,8 @@ public class CityGenerator : MonoBehaviour
 
     public bool requireBorder = true;
 
+    public int blockSize =3;
+
     //public BuildingKit[] buildingKits;
 
     [Tooltip("Maximum width of a lot in cells. If a building's width exceeds this, it will be split into multiple lots.")]
@@ -24,6 +26,9 @@ public class CityGenerator : MonoBehaviour
         public int rotationSteps;
     }
 
+private bool[,] roadMask;
+
+
     private PlacedTile[,] grid;
     private int attemptsUsed;
 
@@ -32,15 +37,114 @@ public class CityGenerator : MonoBehaviour
         GenerateCity();
     }
 
+bool IsRoad(int x, int y)
+{
+    if (x < 0 || x >= gridWidth)
+        return false;
+
+    if (y < 0 || y >= gridHeight)
+        return false;
+
+    return roadMask[x, y];
+}
+
+List<int> GenerateRoadLines(int size, int minBlock, int maxBlock)
+{
+    List<int> roads = new();
+
+    int pos = 0;
+    roads.Add(pos);
+
+    while (pos < size - 1)
+    {
+        pos += Random.Range(minBlock, maxBlock + 1);
+
+        if (pos < size)
+            roads.Add(pos);
+    }
+
+    return roads;
+}
+
+(TilePiece piece, int rotation) GetRoadTile(int x, int y)
+{
+    bool north = IsRoad(x, y + 1);
+    bool east  = IsRoad(x + 1, y);
+    bool south = IsRoad(x, y - 1);
+    bool west  = IsRoad(x - 1, y);
+
+    foreach (var piece in tilePieces)
+    {
+        if (piece.category != TileType.Road)
+            continue;
+
+        for (int r = 0; r < 4; r++)
+        {
+            bool n = piece.GetEdge(Dir.North, r) == EdgeType.Road;
+            bool e = piece.GetEdge(Dir.East, r)  == EdgeType.Road;
+            bool s = piece.GetEdge(Dir.South, r) == EdgeType.Road;
+            bool w = piece.GetEdge(Dir.West, r)  == EdgeType.Road;
+
+            if (n == north &&
+                e == east &&
+                s == south &&
+                w == west)
+            {
+                return (piece, r);
+            }
+        }
+    }
+
+    return (null, 0);
+}
+
     public void GenerateCity()
     {
+        var verticalRoads =
+    GenerateRoadLines(gridWidth, 2, 6);
+
+var horizontalRoads =
+    GenerateRoadLines(gridHeight, 2, 6);
+        roadMask = new bool[gridWidth, gridHeight];
+        HashSet<int> vRoads = new(verticalRoads);
+        HashSet<int> hRoads = new(horizontalRoads);
+        for (int x = 0; x < gridWidth; x++)
+        {
+            for (int y = 0; y < gridHeight; y++)
+            {
+                roadMask[x, y] =
+                    vRoads.Contains(x) ||
+                    hRoads.Contains(y);
+            }
+        }
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
         grid = new PlacedTile[gridWidth, gridHeight];
-        attemptsUsed = 0;
-        bool success = TryFillGrid(0, 0);
+
+for (int x = 0; x < gridWidth; x++)
+{
+    for (int y = 0; y < gridHeight; y++)
+    {
+        if (!roadMask[x, y])
+            continue;
+
+        var road = GetRoadTile(x, y);
+
+        if (road.piece != null)
+        {
+            grid[x, y] = new PlacedTile
+            {
+                tilePiece = road.piece,
+                rotationSteps = road.rotation
+            };
+        }
+    }
+}
+
+attemptsUsed = 0;
+bool success = TryFillGrid(0, 0);
         if (!success)
         {
             Debug.LogWarning("CityGenerator: could not find a fully valid layout");
@@ -58,11 +162,17 @@ public class CityGenerator : MonoBehaviour
 
         int nextX = (x + 1);
         int nextY = y;
+        
         if (nextX >= gridWidth)
         {
             nextX = 0;
             nextY = y + 1;
         }
+
+        if (roadMask[x, y])
+{
+    return TryFillGrid(nextX, nextY);
+}
 
         List<(TilePiece piece, int rotationSteps)> validTiles = GetValidTiles(x, y);
         WeightedShuffle(validTiles);
@@ -102,6 +212,10 @@ public class CityGenerator : MonoBehaviour
 
         foreach (var piece in tilePieces)
         {
+            if (result.Count == 0)
+{
+    //Debug.LogError($"No valid tiles at ({x},{y})");
+}
             if (piece.prefab == null) continue;
 
             int rotStep = 4 / Mathf.Max(1, 4);
@@ -121,6 +235,7 @@ public class CityGenerator : MonoBehaviour
             }
         }
         return result;
+
     }
     void WeightedShuffle(List<(TilePiece piece, int rotationSteps)> list)
     {
@@ -143,15 +258,15 @@ public class CityGenerator : MonoBehaviour
     bool EdgeMatch(EdgeType? required, TileType? requiredCategory, EdgeType candidate, TileType candidateCategory)
     {
         if (!required.HasValue) return true;
-        if (required.Value != candidate) return false;
-        if (required.Value == EdgeType.Sidewalk &&
-            requiredCategory.HasValue && requiredCategory.Value == TileType.Building &&
-            candidateCategory == TileType.Building)
-        {
-            return false;
-        }
- 
-        return true;
+        // if (required.Value != candidate) return false;
+        // if (required.Value == EdgeType.Sidewalk &&
+        //     requiredCategory.HasValue && requiredCategory.Value == TileType.Building &&
+        //     candidateCategory == TileType.Building)
+        // {
+        //     return false;
+        // }
+ return required.Value == candidate;
+       // return true;
     }
 
     void InstantiateGrid()

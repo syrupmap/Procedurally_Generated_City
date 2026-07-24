@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87f0d5aad6f4340b5952ef5530374126, type: 3}
   m_Name: TilePiece_IntersectionRoad
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
-  prefab: {fileID: 919132149155446097, guid: 2d34cea4af54942b4b7ddc1594dcc36a, type: 3}
+  prefab: {fileID: 919132149155446097, guid: cd473d9f8cc9e42c3a9438ab88c36af0, type: 3}
   pieceName: TwoDoorBuilding
   category: 1
   edgeNums: '[2, 3, 3, 2]'
   edges: 02000000030000000300000002000000
-  weight: 1
+  weight: 3

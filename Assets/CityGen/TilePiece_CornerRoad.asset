@@ -17,4 +17,4 @@ MonoBehaviour:
   category: 1
   edgeNums: '[0, 2, 2, 0]'
   edges: 00000000020000000000000000000000
-  weight: 1
+  weight: 3

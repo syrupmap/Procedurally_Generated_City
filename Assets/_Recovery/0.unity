@@ -299,9 +299,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3837bbd7e6f4c49839f71ec95fc44cb7, type: 2}
   - {fileID: 11400000, guid: e19e6d83b15784cccaf5f5333390f565, type: 2}
   - {fileID: 11400000, guid: 720bcb2896c93489cbe815a4b08d3c91, type: 2}
-  - {fileID: 11400000, guid: 4896e02157efe4ca789b22ff23dd33c0, type: 2}
-  - {fileID: 11400000, guid: e735d7108d09543eeaaa33599c2138ec, type: 2}
-  - {fileID: 11400000, guid: 62a21894b854440f894f9f8f680e033e, type: 2}
   gridWidth: 10
   gridHeight: 10
   tileSize: 8
