@@ -17,11 +17,11 @@ This project is a procedural city generator build in Unity using a tile-based co
 ### Tile Creation + Development
 - Tile-Edge constraints determine how it can connect to neighboring tiles. Tile rotations are automatically supported, increasing layout variety without requiring additional assets.
 <img width="500" height="250" alt="IMG_CE217C337B09-1" src="https://github.com/user-attachments/assets/dc4db10e-546b-4d05-ba26-c400aabdb748" />
-<img width="500" height="350" alt="IMG_0A79C80EBA14-1" src="https://github.com/user-attachments/assets/8ed92f9d-6161-4b0e-976b-3305e5ec976b" />
+<img width="500" height="400" alt="IMG_0A79C80EBA14-1" src="https://github.com/user-attachments/assets/8ed92f9d-6161-4b0e-976b-3305e5ec976b" />
 
 - Generator uses recursive backtracking with weighted tile selection to build valid road networks, building blocks, and open spaces while respecting border and connectivity rules.
-    - Colored <img width="700" height="575" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
-    - Currently using simple blender assets <img width="793" height="441" alt="Screenshot 2026-07-19 at 10 33 40 PM" src="https://github.com/user-attachments/assets/6f25d636-9cbf-4874-8666-ae74a575245f" />
+    - Colored <img width="700" height="500" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
+    - Assets Developed in Blender
 
 ## City Blocking 
 - 
