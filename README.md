@@ -1,6 +1,5 @@
 # (ONGOING PROJECT) Procedurally Generated Cities in Unity 
 <img width="1164" height="806" alt="Screenshot 2026-07-24 at 12 44 56 AM" src="https://github.com/user-attachments/assets/48757941-db29-491a-b878-5df3a2bee148" />
-<img width="609" height="406" alt="Screenshot 2026-07-24 at 12 41 25 AM" src="https://github.com/user-attachments/assets/e3e768dc-b589-42f5-9264-c8d839a578c3" />
 
 ## About 
 This project is a procedural city generator build in Unity using a tile-based constraint system. I plan to use this work for future projects ex: games, videos, and simulations. Each tile defines edge types and the generator fills a grid by selecting tiles that match neighbor edge's. The system uses recursive backtracking to ensure a valid layout.
@@ -22,7 +21,8 @@ This project is a procedural city generator build in Unity using a tile-based co
 - <img width="700" height="500" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
 
 ## City Blocking 
-- 
+- Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist. 
+- <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 41 25 AM" src="https://github.com/user-attachments/assets/e3e768dc-b589-42f5-9264-c8d839a578c3" />
 
 ## Resources + Inspiration
 - https://www.youtube.com/watch?v=Jsc3BQaJndQ (Inspiration)
