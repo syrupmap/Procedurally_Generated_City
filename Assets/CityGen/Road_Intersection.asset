@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
   prefab: {fileID: 919132149155446097, guid: 84342e8f0ffd94341a15e93417a05548, type: 3}
   pieceName: Road_Intersection
-  category: 0
+  category: 1
   edgeNums: '[1, 1, 1, 1]'
   edges: 01000000010000000100000001000000
   weight: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
   prefab: {fileID: 919132149155446097, guid: 666725fbb26c54f9eaf473cf07073643, type: 3}
   pieceName: T_corner
-  category: 0
+  category: 1
   edgeNums: '[3, 1, 1, 1]'
   edges: 03000000010000000100000001000000
   weight: 2
