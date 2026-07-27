@@ -35,8 +35,9 @@ This project is a procedural city generator build in Unity using a tile-based co
 ### 4) Added Tile Variations
 - Added Building + Empty tile randomization. Each building tile type (1 door, 2 door, 3 door) have 2-3 variations of that building to bring more diversity to the city. 
 - <img width="423" height="359" alt="Screenshot 2026-07-27 at 1 19 42 AM" src="https://github.com/user-attachments/assets/58327d3b-7c16-4723-a39d-cc081e9dea24" />
-- <img width="385" height="340" alt="Screenshot 2026-07-27 at 1 19 06 AM" src="https://github.com/user-attachments/assets/8f0f1a9d-33fc-4e9c-be69-0bd536d3b88e" />
-- <img width="385" height="340" alt="Screenshot 2026-07-27 at 1 18 52 AM" src="https://github.com/user-attachments/assets/7c09714b-17ed-48ba-8a26-472284e68a71" />
+- Three empty tile variations to choose from (empty, trees, lake)
+ - <img width="385" height="340" alt="Screenshot 2026-07-27 at 1 19 06 AM" src="https://github.com/user-attachments/assets/8f0f1a9d-33fc-4e9c-be69-0bd536d3b88e" />
+ - <img width="385" height="340" alt="Screenshot 2026-07-27 at 1 18 52 AM" src="https://github.com/user-attachments/assets/7c09714b-17ed-48ba-8a26-472284e68a71" />
 
 ## 5) Next steps...
 - Adding more city customization. Ex: Creating a wall of buildings around the city, or making it surrounded by road.
