@@ -25,8 +25,7 @@ This project is a procedural city generator build in Unity using a tile-based co
 - Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist.
 - <img width="521" height="340" alt="Screenshot 2026-07-26 at 11 14 00 PM" src="https://github.com/user-attachments/assets/bcdcece1-78c2-4332-aca0-fa78bee121ab" />
 - An issue in the beginning was that the roads would spawn within the blocks and generate these strange shapes, so I created a weighting system to make the probability of roads spawning 5x less likely than buildings.
-- <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 15 36 PM" src="https://github.com/user-attachments/assets/09aeb76e-4afa-45f7-b712-9eab60b3082e" />
-- <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 16 15 PM" src="https://github.com/user-attachments/assets/66215e8f-f716-41ab-b854-7bd7dc7ddd41" />
+- <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 15 36 PM" src="https://github.com/user-attachments/assets/09aeb76e-4afa-45f7-b712-9eab60b3082e" /> <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 16 15 PM" src="https://github.com/user-attachments/assets/66215e8f-f716-41ab-b854-7bd7dc7ddd41" />
 
 
 
