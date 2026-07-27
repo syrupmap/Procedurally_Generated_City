@@ -1,5 +1,7 @@
 # (ONGOING PROJECT) Procedurally Generated Cities in Unity 
-<img width="521" height="340" alt="Screenshot 2026-07-26 at 11 11 40 PM" src="https://github.com/user-attachments/assets/e80d1d36-403c-48eb-b7b4-174a1549e0ed" />
+<img width="1484" height="804" alt="Screenshot 2026-07-27 at 1 25 12 AM" src="https://github.com/user-attachments/assets/42d078d4-ee18-4664-910e-39d16a495053" />
+<img width="1484" height="804" alt="Screenshot 2026-07-27 at 1 25 58 AM" src="https://github.com/user-attachments/assets/806b2098-0168-4f76-a2f2-657b0a97424c" />
+
 
 
 ## About 
