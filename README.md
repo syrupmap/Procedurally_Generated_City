@@ -26,13 +26,21 @@ This project is a procedural city generator build in Unity using a tile-based co
 ### 2) City Blocking 
 - Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist.
 - <img width="521" height="340" alt="Screenshot 2026-07-26 at 11 14 00 PM" src="https://github.com/user-attachments/assets/bcdcece1-78c2-4332-aca0-fa78bee121ab" />
-- An issue in the beginning was that the roads would spawn within the blocks and generate these strange shapes, so I created a weighting system to make the probability of roads spawning 5x less likely than buildings.
+- An issue in the beginning was that the roads would spawn within the blocks and generate these strange shapes, so I created a weighting system to make the probability of roads spawning 40x less likely than buildings. This doesn't completely rule out the possibility of having a road spawning in a strange formation, but makes it a little quirk that I want to be very rare, like a shiny pokemon.
 - <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 15 36 PM" src="https://github.com/user-attachments/assets/09aeb76e-4afa-45f7-b712-9eab60b3082e" /> <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 16 15 PM" src="https://github.com/user-attachments/assets/66215e8f-f716-41ab-b854-7bd7dc7ddd41" />
 
-### 3) Next Steps 
-- Optimizing code
-- Adding more features like parks + subway sections + third spaces other than buildings and roads
+### 3) Code Optimization + Commenting 
+- I recently learned about XML documentation and decided to use it for the first time in this project. Good practice to comment code. Deleted unused parameters and old/testing codeblocks. 
 
+### 4) Added Tile Variations
+- Added Building + Empty tile randomization. Each building tile type (1 door, 2 door, 3 door) have 2-3 variations of that building to bring more diversity to the city. 
+- <img width="423" height="359" alt="Screenshot 2026-07-27 at 1 19 42 AM" src="https://github.com/user-attachments/assets/58327d3b-7c16-4723-a39d-cc081e9dea24" />
+- <img width="385" height="340" alt="Screenshot 2026-07-27 at 1 19 06 AM" src="https://github.com/user-attachments/assets/8f0f1a9d-33fc-4e9c-be69-0bd536d3b88e" />
+- <img width="385" height="340" alt="Screenshot 2026-07-27 at 1 18 52 AM" src="https://github.com/user-attachments/assets/7c09714b-17ed-48ba-8a26-472284e68a71" />
+
+## 5) Next steps...
+- Adding more city customization. Ex: Creating a wall of buildings around the city, or making it surrounded by road.
+- Attempt to add features like traffic lights + more
 
 ## Resources + Inspiration
 - https://www.youtube.com/watch?v=Jsc3BQaJndQ (Inspiration)
