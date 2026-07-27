@@ -29,8 +29,6 @@ This project is a procedural city generator build in Unity using a tile-based co
 - An issue in the beginning was that the roads would spawn within the blocks and generate these strange shapes, so I created a weighting system to make the probability of roads spawning 5x less likely than buildings.
 - <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 15 36 PM" src="https://github.com/user-attachments/assets/09aeb76e-4afa-45f7-b712-9eab60b3082e" /> <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 16 15 PM" src="https://github.com/user-attachments/assets/66215e8f-f716-41ab-b854-7bd7dc7ddd41" />
 
-
-
 ### 3) Next Steps 
 - Optimizing code
 - Adding more features like parks + subway sections + third spaces other than buildings and roads
