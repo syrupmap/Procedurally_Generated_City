@@ -1,5 +1,7 @@
 # (ONGOING PROJECT) Procedurally Generated Cities in Unity 
-<img width="1164" height="806" alt="Screenshot 2026-07-24 at 12 44 56 AM" src="https://github.com/user-attachments/assets/48757941-db29-491a-b878-5df3a2bee148" />
+<img width="1484" height="804" alt="Screenshot 2026-07-27 at 1 25 58 AM" src="https://github.com/user-attachments/assets/806b2098-0168-4f76-a2f2-657b0a97424c" />
+
+
 
 ## About 
 This project is a procedural city generator build in Unity using a tile-based constraint system. I plan to use this work for future projects ex: games, videos, and simulations. Each tile defines edge types and the generator fills a grid by selecting tiles that match neighbor edge's. The system uses recursive backtracking to ensure a valid layout.
@@ -16,19 +18,30 @@ This project is a procedural city generator build in Unity using a tile-based co
 ## Progress (Updating)
 ### 1) Tile Creation + Development
 - Tile-Edge constraints determine how it can connect to neighboring tiles. Tile rotations are automatically supported, increasing layout variety without requiring additional assets. (Current building + road assets Developed/Baked in Blender)
-- <img width="400" height="400" alt="IMG_0A79C80EBA14-1" src="https://github.com/user-attachments/assets/8ed92f9d-6161-4b0e-976b-3305e5ec976b" />
+- <img width="650" height="233" alt="Screenshot 2026-07-26 at 11 20 27 PM" src="https://github.com/user-attachments/assets/ce3b84a0-5e2e-4fc0-b983-dcbdfed28103" />
+- <img width="400" height="94" alt="Screenshot 2026-07-26 at 11 17 38 PM" src="https://github.com/user-attachments/assets/be268384-a70c-45ba-91c3-d03b4347ce64" />
+- <img width="384" height="94" alt="Screenshot 2026-07-26 at 11 18 52 PM" src="https://github.com/user-attachments/assets/91245402-43c7-4f36-84da-1d5df753e2d2" />
 - Generator uses recursive backtracking with weighted tile selection to build valid road networks, building blocks, and open spaces while respecting border and connectivity rules.
 - <img width="700" height="500" alt="Screenshot 2026-07-19 at 10 00 30 PM" src="https://github.com/user-attachments/assets/d4c0ef29-5542-4d6c-9d4e-b90f26194fff" />
 
 ### 2) City Blocking 
-- Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist. 
-- <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 41 25 AM" src="https://github.com/user-attachments/assets/e3e768dc-b589-42f5-9264-c8d839a578c3" />
-- <img width="609" height="406" alt="Screenshot 2026-07-24 at 12 12 07 AM" src="https://github.com/user-attachments/assets/c317b0e6-4604-479d-93fa-b0eb960237c7" />
+- Changed generation system to use a district-based road layout system. Cretes varies urban block structures. First creates network of road bounderies that span between 6-8. The road positions are converted into a grid mask, which determines where roads must exist.
+- <img width="521" height="340" alt="Screenshot 2026-07-26 at 11 14 00 PM" src="https://github.com/user-attachments/assets/bcdcece1-78c2-4332-aca0-fa78bee121ab" />
+- An issue in the beginning was that the roads would spawn within the blocks and generate these strange shapes, so I created a weighting system to make the probability of roads spawning 40x less likely than buildings. This doesn't completely rule out the possibility of having a road spawning in a strange formation, but makes it a little quirk that I want to be very rare, like a shiny pokemon.
+- <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 15 36 PM" src="https://github.com/user-attachments/assets/09aeb76e-4afa-45f7-b712-9eab60b3082e" /> <img width="229" height="254" alt="Screenshot 2026-07-26 at 11 16 15 PM" src="https://github.com/user-attachments/assets/66215e8f-f716-41ab-b854-7bd7dc7ddd41" />
 
-### 3) Next Steps 
-- Optimizing code
-- Adding more features like parks + subway sections + third spaces other than buildings and roads
+### 3) Code Optimization + Commenting 
+- I recently learned about XML documentation and decided to use it for the first time in this project. Good practice to comment code. Deleted unused parameters and old/testing codeblocks. 
 
+### 4) Added Tile Variations
+- Added Building + Empty tile randomization. Each building tile type (1 door, 2 door, 3 door) have 2-3 variations of that building to bring more diversity to the city. 
+- <img width="423" height="359" alt="Screenshot 2026-07-27 at 1 19 42 AM" src="https://github.com/user-attachments/assets/58327d3b-7c16-4723-a39d-cc081e9dea24" />
+- Three empty tile variations to choose from (empty, trees, lake)
+ - <img width="285" height="240" alt="Screenshot 2026-07-27 at 1 19 06 AM" src="https://github.com/user-attachments/assets/8f0f1a9d-33fc-4e9c-be69-0bd536d3b88e" />  <img width="285" height="240" alt="Screenshot 2026-07-27 at 1 18 52 AM" src="https://github.com/user-attachments/assets/7c09714b-17ed-48ba-8a26-472284e68a71" />
+
+## 5) Next steps...
+- Adding more city customization. Ex: Creating a wall of buildings around the city, or making it surrounded by road.
+- Attempt to add features like traffic lights + more
 
 ## Resources + Inspiration
 - https://www.youtube.com/watch?v=Jsc3BQaJndQ (Inspiration)
