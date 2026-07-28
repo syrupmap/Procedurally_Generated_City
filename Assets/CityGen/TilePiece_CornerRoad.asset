@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
   prefab: {fileID: 919132149155446097, guid: a24759b488e0f42b09e9d7bd60ed23e0, type: 3}
   pieceName: SideBuilding
-  category: 1
+  category: 2
   edgeNums: '[0, 2, 2, 0]'
   edges: 00000000020000000000000000000000
-  weight: 3
+  weight: 4

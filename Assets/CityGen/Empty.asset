@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Empty
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
   prefab: {fileID: 919132149155446097, guid: affa80d0caa364819b539d0f250ecf0c, type: 3}
+  prefabVariants:
+  - {fileID: 919132149155446097, guid: affa80d0caa364819b539d0f250ecf0c, type: 3}
+  - {fileID: 919132149155446097, guid: 0552e7222217a4409a25e3fece939ec0, type: 3}
+  - {fileID: 919132149155446097, guid: 316c087d6c8d14cca8d70f93953a94e4, type: 3}
   pieceName: TilePiece_Blank
   category: 0
   edgeNums: '[0, 0, 0, 0]'

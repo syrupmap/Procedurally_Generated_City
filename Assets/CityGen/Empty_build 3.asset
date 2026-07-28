@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Empty_build 3
   m_EditorClassIdentifier: Assembly-CSharp::TilePiece
   prefab: {fileID: 919132149155446097, guid: affa80d0caa364819b539d0f250ecf0c, type: 3}
+  prefabVariants:
+  - {fileID: 919132149155446097, guid: affa80d0caa364819b539d0f250ecf0c, type: 3}
+  - {fileID: 919132149155446097, guid: 0552e7222217a4409a25e3fece939ec0, type: 3}
   pieceName: Empty_build
-  category: 2
+  category: 0
   edgeNums: '[0, 0, 0, 2]'
   edges: 00000000000000000000000002000000
-  weight: 2
+  weight: 4

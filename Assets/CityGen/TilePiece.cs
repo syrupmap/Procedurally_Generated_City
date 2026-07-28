@@ -1,24 +1,25 @@
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
-/// Direction enum representing the four cardinal directions.🧭🗺️👆👉👇👈 Used for indexing into the edges array of a TilePiece.
+/// Direction enum representing the four cardinal directions. Used for indexing into the edges array of a TilePiece.
 /// </summary>
 public enum Dir { North, East, South, West }
 
 /// <summary>
-/// Category of a tile piece.🧩🤔💭 Used to determine which pieces can be conencted by edge types. 
+/// Category of a tile piece.Used to determine which pieces can be conencted by edge types. 
 public enum TileType { Empty, Road, Building }
 
 /// <summary>
-/// Edge type of a tile piece. 🛣️🛣️🚗🛣️🛣️ Used to determine how pieces conenct with each other. 
+/// Edge type of a tile piece. Used to determine how pieces conenct with each other. 
 /// Ex: 0 == 0, 1 == 1, 2==2 means those two edges of those two tiles can connect. 
 public enum EdgeType { Empty = 0, Road = 1, Building = 2, Sidewalk = 3 }
 
 /// <summary>
-/// TilePiece class represents single tile piece in the city generation 🤔💭🧩🧩🧩🧩➡️🏬. The [CreateAssetMenu] attribute
+/// TilePiece class represents single tile piece in the city generation. The [CreateAssetMenu] attribute
 /// allows you to create instances of this class as assets in the Unity Editor. This way it is now possible to make new
 ///  TilePiece assets through the Unity Editor by right clicking in the Project window and going Create -> CityGen (name of my folder that holds all the scripts+assets) 
-/// -> TilePiece. Then you just  deadass drag in ALL the info for the tilepiece into the inspector  📑✍️🔥🔥
+/// -> TilePiece. Then you just  deadass drag in ALL the info for the tilepiece into the inspector
 /// </summary>
 [CreateAssetMenu(fileName = "TilePiece", menuName = "CityGen/TilePiece")]
 public class TilePiece : ScriptableObject
@@ -26,6 +27,11 @@ public class TilePiece : ScriptableObject
     [Header("Tile Piece Info")]
     [Tooltip("Prefab representing this tile piece.")]
     public GameObject prefab;
+     [Tooltip("An optional prefab for if there are multiple visual variants that share this piece's edges" +
+             "Suppose three different-looking 1-door building models. If this list has any " +
+             "entries, one is picked at random each time this piece gets placed, instead of " +
+             "always using 'Prefab' above. If pieces only want one look then it shall be left empty.")]
+    public GameObject[] prefabVariants;
     [Tooltip("Name of the tile piece. If left empty, will default to the name of the prefab.")]
     public string pieceName;
     [Tooltip("Type of the tile piece.")]
@@ -61,5 +67,20 @@ public class TilePiece : ScriptableObject
     {
         int rotatedIndex = ((int)dir - rotationSteps + 4) % 4;
         return edges[rotatedIndex];
+    }
+
+    public GameObject GetRandomPrefab()
+    {
+        if (prefabVariants != null && prefabVariants.Length > 0)
+        {
+            int pick = Random.Range(0, prefabVariants.Length);
+            if (prefabVariants[pick] == null)
+            {
+                Debug.Log("HELL no");
+                return prefab;
+            }
+            return prefabVariants[pick];
+        }
+        return prefab;
     }
 }

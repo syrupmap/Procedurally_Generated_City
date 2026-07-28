@@ -53,11 +53,11 @@ public class CityGenerator : MonoBehaviour
 
     /// <summary>
     /// Main controller for city generation. 
-    /// 1) Begins by creating the road map 🚗🗺️. Converts the road lists to hashsets cause I learned in class that it helps with optimization. Marks every road cell in the boolean "road" 2D array. T for road, F for non-road
-    /// 2) Delete the old city with DestroyImmediate. 💥💣💥🧨💥
-    /// 3) Create actual city grid that is full of null. Place and fill all roadTiles first 
-    /// 4) Reset attemptsUsed = 0
-    /// 5) Fill the remaining spaces and check for failure. If not, then city shall be instantiated.
+    ///     1) Begins by creating the road map. Converts the road lists to hashsets cause I learned in class that it helps with optimization. Marks every road cell in the boolean "road" 2D array. T for road, F for non-road
+    ///     2) Delete the old city with DestroyImmediate. 
+    ///     3) Create actual city grid that is full of null. Place and fill all roadTiles first 
+    ///     4) Reset attemptsUsed = 0
+    ///     5) Fill the remaining spaces and check for failure. If not, then city shall be instantiated.
     /// </summary>
     public void GenerateCity()
     {
@@ -191,7 +191,6 @@ public class CityGenerator : MonoBehaviour
 
     /// <summary>
     /// The list is shuffled randomly and then then all tiles are given a random weight from 0 to their piece weight.
-    /// The probability of the higher 
     /// </summary>
     void WeightedShuffle(List<(TilePiece piece, int rotationSteps)> list)
     {
@@ -216,6 +215,7 @@ public class CityGenerator : MonoBehaviour
     bool EdgeMatch(EdgeType? required, TileType? requiredCategory, EdgeType candidate, TileType candidateCategory)
     {
         if (!required.HasValue) return true;
+
         return required.Value == candidate;
     }
 
@@ -230,11 +230,9 @@ public class CityGenerator : MonoBehaviour
             {
                 var cell = grid[x, y];
                 if (cell == null || cell.tilePiece.prefab == null) continue;
-
                 Vector3 pos = new Vector3(x * tileSize, 0f, y * tileSize);
                 Quaternion rot = Quaternion.Euler(0f, 90f * cell.rotationSteps, 0f);
-
-                GameObject go = Instantiate(cell.tilePiece.prefab, transform);
+                GameObject go = Instantiate(cell.tilePiece.GetRandomPrefab(), transform);
                 go.transform.localPosition = pos;
                 go.transform.localRotation = rot;
                 go.name = $"{cell.tilePiece.pieceName}_{x}_{y}";
@@ -248,12 +246,8 @@ public class CityGenerator : MonoBehaviour
     /// </summary>
     bool IsRoad(int x, int y)
     {
-        if (x < 0 || x >= gridWidth)
-            return false;
-
-        if (y < 0 || y >= gridHeight)
-            return false;
-
+        if (x < 0 || x >= gridWidth) return false;
+        if (y < 0 || y >= gridHeight) return false;
         return roadMask[x, y];
     }
 
@@ -278,6 +272,7 @@ public class CityGenerator : MonoBehaviour
                 roads.Add(pos);
             }
         }
+        //roads.Add(size-1);
         return roads;
     }
 
