@@ -1,4 +1,4 @@
-# (ONGOING PROJECT) Procedurally Generated Cities in Unity 
+# (IN PROGRESS) Procedurally Generated Cities in Unity 
 <img width="1484" height="804" alt="Screenshot 2026-07-27 at 1 25 58 AM" src="https://github.com/user-attachments/assets/806b2098-0168-4f76-a2f2-657b0a97424c" />
 
 
